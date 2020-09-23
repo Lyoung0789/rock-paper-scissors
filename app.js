@@ -29,9 +29,9 @@ const game = () => {
         const computerChoice = computerOptions[computerNumber];
         const playerChoice = this.innerText;
         //We will call compareHands
-        console.log("Player:", playerChoice);
-        console.log("Computer:", computerChoice);
+
         compareHands(playerChoice, computerChoice);
+        updateScore();
       });
     });
   };
@@ -39,6 +39,7 @@ const game = () => {
   const compareHands = (playerChoice, computerChoice) => {
     const winner = document.querySelector(".winner");
 
+    //Calls a function to change the image
     changeHandImage(playerChoice, computerChoice);
     //checks for a tie
     if (playerChoice === computerChoice) {
@@ -50,9 +51,11 @@ const game = () => {
     if (playerChoice === "rock") {
       if (computerChoice === "paper") {
         winner.textContent = "Computer Wins!";
+        cScore++;
         return;
       } else {
         winner.textContent = "Player Wins!";
+        pScore++;
         return;
       }
     }
@@ -60,9 +63,11 @@ const game = () => {
     if (playerChoice === "paper") {
       if (computerChoice === "rock") {
         winner.textContent = "Player Wins!";
+        pScore++;
         return;
       } else {
         winner.textContent = "Computer Wins!";
+        cScore++;
         return;
       }
     }
@@ -70,12 +75,16 @@ const game = () => {
     if (playerChoice === "scissors") {
       if (computerChoice === "rock") {
         winner.textContent = "Player Wins!";
+        pScore++;
         return;
       } else {
         winner.textContent = "Computer Wins!";
+        cScore++;
         return;
       }
     }
+
+    //Call function to update Score
   };
 
   const changeHandImage = (playerHand, computerHand) => {
@@ -83,6 +92,16 @@ const game = () => {
     const computer = document.querySelector(".computer-hand");
     computer.src = "./assets/" + computerHand + ".png";
     player.src = "./assets/" + playerHand + ".png";
+  };
+
+  const updateScore = () => {
+    console.log("Player Score: ", pScore);
+    console.log("Computer Score: ", cScore);
+    const playerScore = document.querySelector(".player-score p");
+    const computerScore = document.querySelector(".computer-score p");
+    // debugger;
+    playerScore.innerText = pScore;
+    computerScore.innerText = cScore;
   };
 
   startGame();
