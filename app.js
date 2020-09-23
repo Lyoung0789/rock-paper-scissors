@@ -28,7 +28,6 @@ const game = () => {
         const computerNumber = Math.floor(Math.random() * 3);
         const computerChoice = computerOptions[computerNumber];
         const playerChoice = this.innerText;
-
         //We will call compareHands
         console.log("Player:", playerChoice);
         console.log("Computer:", computerChoice);
@@ -40,6 +39,7 @@ const game = () => {
   const compareHands = (playerChoice, computerChoice) => {
     const winner = document.querySelector(".winner");
 
+    changeHandImage(playerChoice, computerChoice);
     //checks for a tie
     if (playerChoice === computerChoice) {
       winner.textContent = "It's a tie!";
@@ -76,6 +76,13 @@ const game = () => {
         return;
       }
     }
+  };
+
+  const changeHandImage = (playerHand, computerHand) => {
+    const player = document.querySelector(".player-hand");
+    const computer = document.querySelector(".computer-hand");
+    computer.src = "./assets/" + computerHand + ".png";
+    player.src = "./assets/" + playerHand + ".png";
   };
 
   startGame();
