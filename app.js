@@ -16,6 +16,15 @@ const game = () => {
   //Play Match
   const playMatch = () => {
     const options = document.querySelectorAll(".options button");
+    const hands = document.querySelectorAll(".hands img");
+    const player = document.querySelector(".player-hand");
+    const computer = document.querySelector(".computer-hand");
+
+    hands.forEach((hand) => {
+      hand.addEventListener("animationend", function () {
+        this.style.animation = "";
+      });
+    });
 
     //computer options
     const computerOptions = ["rock", "paper", "scissors"];
@@ -27,8 +36,13 @@ const game = () => {
         const computerChoice = computerOptions[computerNumber];
         const playerChoice = this.innerText;
         //We will call compareHands
-        compareHands(playerChoice, computerChoice);
-        updateScore();
+        setTimeout(() => {
+          compareHands(playerChoice, computerChoice);
+          updateScore();
+        }, 2000);
+
+        player.style.animation = "shakePlayer 2s ease";
+        computer.style.animation = "shakeComputer 2s ease";
       });
     });
   };
@@ -38,6 +52,7 @@ const game = () => {
 
     //Calls a function to change the image
     changeHandImage(playerChoice, computerChoice);
+
     //checks for a tie
     if (playerChoice === computerChoice) {
       winner.textContent = "It's a tie!";
