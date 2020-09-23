@@ -16,8 +16,6 @@ const game = () => {
   //Play Match
   const playMatch = () => {
     const options = document.querySelectorAll(".options button");
-    const pHand = document.querySelector(".player-hand");
-    const cHand = document.querySelector(".computer-hand");
 
     //computer options
     const computerOptions = ["rock", "paper", "scissors"];
@@ -29,7 +27,6 @@ const game = () => {
         const computerChoice = computerOptions[computerNumber];
         const playerChoice = this.innerText;
         //We will call compareHands
-
         compareHands(playerChoice, computerChoice);
         updateScore();
       });
@@ -60,6 +57,7 @@ const game = () => {
       }
     }
 
+    //checks for paper
     if (playerChoice === "paper") {
       if (computerChoice === "rock") {
         winner.textContent = "Player Wins!";
@@ -72,6 +70,7 @@ const game = () => {
       }
     }
 
+    //checks for scissors
     if (playerChoice === "scissors") {
       if (computerChoice === "rock") {
         winner.textContent = "Player Wins!";
@@ -90,8 +89,8 @@ const game = () => {
   const changeHandImage = (playerHand, computerHand) => {
     const player = document.querySelector(".player-hand");
     const computer = document.querySelector(".computer-hand");
-    computer.src = "./assets/" + computerHand + ".png";
-    player.src = "./assets/" + playerHand + ".png";
+    computer.src = `./assets/${computerHand}.png`;
+    player.src = `./assets/${playerHand}.png`;
   };
 
   const updateScore = () => {
@@ -99,7 +98,6 @@ const game = () => {
     console.log("Computer Score: ", cScore);
     const playerScore = document.querySelector(".player-score p");
     const computerScore = document.querySelector(".computer-score p");
-    // debugger;
     playerScore.innerText = pScore;
     computerScore.innerText = cScore;
   };
