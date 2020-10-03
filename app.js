@@ -8,8 +8,23 @@ const game = () => {
     const match = document.querySelector(".match");
 
     playButton.addEventListener("click", () => {
+      console.log("Button pressed");
       introScreen.classList.add("fadeOut");
       match.classList.add("fadeIn");
+    });
+  };
+
+  const seeHighScore = () => {
+    const scoreButton = document.querySelector(".see-score button");
+    const introScreen = document.querySelector(".intro");
+    const seeScorePage = document.querySelector(".see-page");
+    const seeScore = document.querySelector(".score");
+
+    scoreButton.addEventListener("click", () => {
+      console.log("Hello Fam");
+      introScreen.classList.add("fadeOut");
+      seeScorePage.classList.add("fadeIn");
+      seeScore.classList.add("fadeOut");
     });
   };
 
@@ -119,6 +134,7 @@ const game = () => {
 
   startGame();
   playMatch();
+  seeHighScore();
 };
 
 game();
