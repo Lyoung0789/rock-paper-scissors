@@ -132,9 +132,18 @@ const game = () => {
     computerScore.innerText = cScore;
   };
 
+  const getScores = () => {
+    fetch("http://localhost:3000/scores")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   startGame();
   playMatch();
   seeHighScore();
+  getScores();
 };
 
 game();
