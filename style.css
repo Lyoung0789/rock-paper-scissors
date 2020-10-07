@@ -156,5 +156,6 @@ div.fadeIn {
   left: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.5s ease 0.5s;
+
   /* padding-top: 100px; */
 }

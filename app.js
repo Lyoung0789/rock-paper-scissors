@@ -142,19 +142,20 @@ const game = () => {
   };
 
   const populateScore = (data) => {
-    const highScore = document.querySelector(".score-page");
+    const highScore = document.querySelector("#score-list");
+
     console.log(highScore);
     console.log("score are: ", data);
     console.log(highScore);
-    let element = document.createElement("ul");
+    // let element = document.createElement("ul");
     data.forEach((score) => {
       let li = document.createElement("li");
       li.innerHTML = `Name: ${score.name} Score: ${score.score}`;
-      element.appendChild(li);
-
+      console.log(li);
+      highScore.appendChild(li);
       console.log("Name:" + score.name + " Score: " + score.score);
     });
-    highScore.appendChild(element);
+    // highScore.appendChild(element);
   };
 
   startGame();
