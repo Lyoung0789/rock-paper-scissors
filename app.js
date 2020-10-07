@@ -158,9 +158,20 @@ const game = () => {
     // highScore.appendChild(element);
   };
 
+  const goBackToGame = () => {
+    const playButton = document.querySelector(".go-to-game");
+    const match = document.querySelector(".match");
+    const highScore = document.querySelector(".score-page");
+    playButton.addEventListener("click", () => {
+      match.classList.add("fadeIn");
+      highScore.className = "see-score fadeOut";
+    });
+  };
+
   startGame();
   playMatch();
   seeHighScore();
+  goBackToGame();
 };
 
 game();
