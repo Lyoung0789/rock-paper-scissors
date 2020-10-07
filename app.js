@@ -17,11 +17,12 @@ const game = () => {
   const seeHighScore = () => {
     const scoreButton = document.querySelector(".see-score button");
     const introScreen = document.querySelector(".intro");
-    const seeScorePage = document.querySelector(".see-page");
+    const seeScorePage = document.querySelector(".score-page");
     const seeScore = document.querySelector(".score");
 
     scoreButton.addEventListener("click", () => {
-      console.log("Hello Fam");
+      let scores = getScores();
+      console.log("High Score");
       introScreen.classList.add("fadeOut");
       seeScorePage.classList.add("fadeIn");
       seeScore.classList.add("fadeOut");
@@ -136,14 +137,21 @@ const game = () => {
     fetch("http://localhost:3000/scores")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        populateScore(data);
       });
+  };
+
+  const populateScore = (data) => {
+    const highScore = document.querySelector(".score-page");
+    console.log("score are: ", data);
+    data.forEach((score) => {
+      console.log("Name:" + score.name + " Score: " + score.score);
+    });
   };
 
   startGame();
   playMatch();
   seeHighScore();
-  getScores();
 };
 
 game();

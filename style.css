@@ -148,3 +148,13 @@ div.fadeIn {
     transform: translateY(0px);
   }
 }
+
+.score-page {
+  color: rgb(230, 230, 230);
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease 0.5s;
+  /* padding-top: 100px; */
+}
