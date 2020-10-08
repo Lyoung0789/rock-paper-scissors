@@ -186,10 +186,23 @@ const game = () => {
     const endScreen = document.querySelector(".end");
     const match = document.querySelector(".match");
     const submit = document.querySelector(".end .submit");
+    const name = document.querySelector("#pName");
     endScreen.className = "end fadeIn";
     match.className = "match fadeOut";
-    submit.addEventListener("click", () => {
-      console.log(submit);
+    submit.addEventListener("click", (event) => {
+      // event.preventDefault();
+      console.log("submitting to the DB");
+      console.log(name.value);
+      fetch("http://localhost:3000/scores", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ name: name.value, score: pScore }),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
     });
   };
 

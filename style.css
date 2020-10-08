@@ -153,12 +153,12 @@ div.fadeIn {
 .score-page {
   color: rgb(230, 230, 230);
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.5s ease 0.25s;
 
-  /* padding-top: 100px; */
+  /* padding-top: 15px; */
 }
 
 .list {
