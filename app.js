@@ -185,8 +185,12 @@ const game = () => {
   const gameOver = () => {
     const endScreen = document.querySelector(".end");
     const match = document.querySelector(".match");
+    const submit = document.querySelector(".end .submit");
     endScreen.className = "end fadeIn";
     match.className = "match fadeOut";
+    submit.addEventListener("click", () => {
+      console.log(submit);
+    });
   };
 
   startGame();
