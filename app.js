@@ -159,7 +159,7 @@ const game = () => {
   };
 
   const goBackToGame = () => {
-    const playButton = document.querySelector(".go-to-game");
+    const playButton = document.querySelector(".score-page button");
     const match = document.querySelector(".match");
     const highScore = document.querySelector(".score-page");
     const seeScore = document.querySelector(".score");
