@@ -8,6 +8,9 @@
   </head>
   <body>
     <section class="game">
+      <div class="total">
+        <p><span id="total-count">0</span> out of 10</p>
+      </div>
       <div class="score">
         <div class="player-score">
           <h2>Player</h2>
@@ -47,6 +50,12 @@
           <ul id="score-list"></ul>
         </div>
         <button>Play</button>
+      </div>
+
+      <div class="end fadeOut">
+        <h1>Game Over</h1>
+        <h2>Submit score?</h2>
+        <button>Yes</button><button>Play Again</button>
       </div>
     </section>
     <script src="app.js"></script>

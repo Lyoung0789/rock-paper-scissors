@@ -1,6 +1,7 @@
 const game = () => {
   let pScore = 0;
   let cScore = 0;
+  let totalCount = 0;
 
   const startGame = () => {
     const playButton = document.querySelector(".intro button");
@@ -59,6 +60,7 @@ const game = () => {
 
         player.style.animation = "shakePlayer 2s ease";
         computer.style.animation = "shakeComputer 2s ease";
+        totalCount++;
       });
     });
   };
@@ -72,6 +74,7 @@ const game = () => {
     //checks for a tie
     if (playerChoice === computerChoice) {
       winner.textContent = "It's a tie!";
+
       return;
     }
 
@@ -80,10 +83,12 @@ const game = () => {
       if (computerChoice === "paper") {
         winner.textContent = "Computer Wins!";
         cScore++;
+
         return;
       } else {
         winner.textContent = "Player Wins!";
         pScore++;
+
         return;
       }
     }
@@ -129,8 +134,15 @@ const game = () => {
     console.log("Computer Score: ", cScore);
     const playerScore = document.querySelector(".player-score p");
     const computerScore = document.querySelector(".computer-score p");
+    const totalGames = document.querySelector("#total-count");
+    totalGames.innerText = totalCount;
     playerScore.innerText = pScore;
     computerScore.innerText = cScore;
+
+    if (totalCount === 3) {
+      console.log("this is it");
+      gameOver();
+    }
   };
 
   const getScores = () => {
@@ -168,6 +180,13 @@ const game = () => {
       seeScore.className = "score fadeIn";
       highScore.className = "see-score fadeOut";
     });
+  };
+
+  const gameOver = () => {
+    const endScreen = document.querySelector(".end");
+    const match = document.querySelector(".match");
+    endScreen.className = "end fadeIn";
+    match.className = "match fadeOut";
   };
 
   startGame();
