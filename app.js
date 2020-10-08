@@ -21,11 +21,11 @@ const game = () => {
     const seeScore = document.querySelector(".score");
 
     scoreButton.addEventListener("click", () => {
-      let scores = getScores();
       console.log("High Score");
       introScreen.classList.add("fadeOut");
-      seeScorePage.classList.add("fadeIn");
       seeScore.classList.add("fadeOut");
+      seeScorePage.classList.add("fadeIn");
+      getScores();
     });
   };
 
@@ -162,8 +162,10 @@ const game = () => {
     const playButton = document.querySelector(".go-to-game");
     const match = document.querySelector(".match");
     const highScore = document.querySelector(".score-page");
+    const seeScore = document.querySelector(".score");
     playButton.addEventListener("click", () => {
       match.classList.add("fadeIn");
+      seeScore.className = "score fadeIn";
       highScore.className = "see-score fadeOut";
     });
   };

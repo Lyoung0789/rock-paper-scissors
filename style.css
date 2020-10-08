@@ -16,6 +16,7 @@ section {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: opacity 0.5s ease;
 }
 
 .score h2 {
@@ -155,7 +156,7 @@ div.fadeIn {
   top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: opacity 0.5s ease 0.5s;
+  transition: opacity 0.5s ease 0.25s;
 
   /* padding-top: 100px; */
 }
