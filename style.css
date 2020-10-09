@@ -182,3 +182,17 @@ div.fadeIn {
   transform: translate(-50%, -50%);
   transition: opacity 0.5s ease 0.5s;
 }
+
+.end button {
+  width: 100px;
+  height: 50px;
+  background: none;
+  border: none;
+  color: rgb(230, 230, 230);
+  background-color: #1ea896;
+  border-radius: 5px;
+}
+
+input {
+  line-height: 48px;
+}
