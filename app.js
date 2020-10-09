@@ -187,6 +187,7 @@ const game = () => {
     const match = document.querySelector(".match");
     const submit = document.querySelector(".end .submit");
     const name = document.querySelector("#pName");
+    const goHome = document.querySelector("#go-home");
     endScreen.className = "end fadeIn";
     match.className = "match fadeOut";
     submit.addEventListener("click", (event) => {
@@ -203,6 +204,9 @@ const game = () => {
       })
         .then((response) => response.json())
         .then((data) => console.log(data));
+    });
+    goHome.addEventListener("click", () => {
+      window.location.reload();
     });
   };
 
